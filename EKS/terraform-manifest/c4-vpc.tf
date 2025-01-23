@@ -16,6 +16,8 @@ module "vpc" {
 
   enable_dns_hostnames = true
   enable_dns_support   = true
-
-  tags = local.common_tags
+  tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+  }
 }
+
